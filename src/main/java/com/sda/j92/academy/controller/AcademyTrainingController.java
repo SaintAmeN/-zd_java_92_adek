@@ -1,8 +1,8 @@
 package com.sda.j92.academy.controller;
 
-import com.sda.j92.academy.model.AcademyTraining;
-import com.sda.j92.academy.model.TrainingDto;
-import com.sda.j92.academy.service.AcademyTrainingService;
+import com.sda.j92.academy.model.TourOffer;
+import com.sda.j92.academy.model.TourOfferDto;
+import com.sda.j92.academy.service.TourOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,39 +13,39 @@ import java.util.List;
 @RequestMapping("/trainings")
 @RequiredArgsConstructor
 public class AcademyTrainingController {
-    private final AcademyTrainingService academyTrainingService;
+    private final TourOfferService tourOfferService;
 
     @CrossOrigin()
     @GetMapping("")
-    public List<AcademyTraining> get(){
-        return academyTrainingService.findAll();
+    public List<TourOffer> get(){
+        return tourOfferService.findAll();
     }
 
     @CrossOrigin()
     @PostMapping("")
-    public void add(@RequestBody AcademyTraining training){
-        academyTrainingService.add(training);
+    public void add(@RequestBody TourOffer offer){
+        tourOfferService.add(offer);
     }
 
     @CrossOrigin()
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
-        academyTrainingService.delete(id);
+        tourOfferService.delete(id);
     }
 
     @CrossOrigin()
     @GetMapping("/{id}")
-    public TrainingDto getById(@PathVariable Long id){
-        return academyTrainingService.getById(id);
+    public TourOfferDto getById(@PathVariable Long id){
+        return tourOfferService.getById(id);
     }
 
-    @PostMapping("/attendee/{trainingId}/{attendeeId}")
-    public TrainingDto addAttendeeToTraining(@PathVariable  Long trainingId, @PathVariable Long attendeeId){
-        return academyTrainingService.addAttendeeToTraining(trainingId, attendeeId);
+    @PostMapping("/attendee/{tripId}/{attendeeId}")
+    public TourOfferDto addAttendeeToTraining(@PathVariable  Long tripId, @PathVariable Long attendeeId){
+        return tourOfferService.addAttendeeToTripOffer(tripId, attendeeId);
     }
 
-    @DeleteMapping("/attendee/{trainingId}/{attendeeId}")
-    public TrainingDto removeAttendeeFromTraining(@PathVariable  Long trainingId, @PathVariable Long attendeeId){
-        return academyTrainingService.removeAttendeeFromTraining(trainingId, attendeeId);
+    @DeleteMapping("/attendee/{tripId}/{attendeeId}")
+    public TourOfferDto removeAttendeeFromTraining(@PathVariable  Long tripId, @PathVariable Long attendeeId){
+        return tourOfferService.removeAttendeeFromTripOffer(tripId, attendeeId);
     }
 }

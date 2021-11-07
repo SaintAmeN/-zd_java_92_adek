@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -13,13 +12,15 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TrainingDto {
+public class TourOfferDto {
     private Long id;
 
-    private String name;
+    private String nameTourOffer;
+    private String country;
     private LocalDate timeStart;
     private int length;
+    private double price;
+    private String guide;
 
-    private String trainer;
-    private Set<TrainingAttendee> attendees;
+    private Set<TourAttendee> attendees;
 }

@@ -10,21 +10,23 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class AcademyTraining {
+public class TourOffer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String nameTourOffer;
+    private String Country;
     private LocalDate timeStart;
     private int length;
-
-    private String trainer;
-
+    private String guide;
+    private Double price;
     // trainings - nazwa pola w klasie TrainingAttendee
     //  podajemy ją żeby Hibernate "wiedział" że jest to wzajemna relacja
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<TrainingAttendee> attendees;
+    private Set<TourAttendee> attendees;
+
 }

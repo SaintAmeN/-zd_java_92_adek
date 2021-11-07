@@ -10,16 +10,11 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class TrainingAttendee {
+public class TourAttendee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String surname;
-
-    private String pesel;
-    private String email;
-    private String address;
-
 }

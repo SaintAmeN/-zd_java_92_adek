@@ -1,8 +1,6 @@
 package com.sda.j92.academy.service;
 
-import com.sda.j92.academy.model.AcademyTraining;
-import com.sda.j92.academy.model.TrainingAttendee;
-import com.sda.j92.academy.repository.AcademyTrainingRepository;
+import com.sda.j92.academy.model.TourAttendee;
 import com.sda.j92.academy.repository.AttendeeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,13 +14,13 @@ import java.util.List;
 public class AttendeeService {
     private final AttendeeRepository attendeeRepository;
 
-    public List<TrainingAttendee> findAll(){
-        List<TrainingAttendee> attendees = attendeeRepository.findAll();
+    public List<TourAttendee> findAll(){
+        List<TourAttendee> attendees = attendeeRepository.findAll();
         log.info("GetAll : " + attendees);
         return attendees;
     }
 
-    public void add(TrainingAttendee training){
+    public void add(TourAttendee training){
         log.info("Add : " + training);
         attendeeRepository.save(training);
     }
