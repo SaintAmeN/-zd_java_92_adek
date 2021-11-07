@@ -1,7 +1,8 @@
 package com.sda.j92.academy.controller;
 
-import com.sda.j92.academy.model.TourAttendee;
-import com.sda.j92.academy.service.AttendeeService;
+import com.sda.j92.academy.model.Element;
+import com.sda.j92.academy.service.CompoundService;
+import com.sda.j92.academy.service.ElementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,25 +12,25 @@ import java.util.List;
 @RestController
 @RequestMapping("/attendees")
 @RequiredArgsConstructor
-public class TrainingAttendeeController {
-    private final AttendeeService attendeeService;
+public class ElementController {
+    private final ElementService elementService;
 
     @CrossOrigin()
     @GetMapping("")
-    public List<TourAttendee> get(){
-        return attendeeService.findAll();
+    public List<Element> get(){
+        return elementService.findAll();
     }
 
     @CrossOrigin()
     @PostMapping("")
-    public void add(@RequestBody TourAttendee training){
-        attendeeService.add(training);
+    public void add(@RequestBody Element element){
+        elementService.add(element);
     }
 
     @CrossOrigin()
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
-        attendeeService.delete(id);
+        elementService.delete(id);
     }
 
 
